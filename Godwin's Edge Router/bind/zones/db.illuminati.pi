@@ -1,0 +1,21 @@
+;
+; BIND data file for gradebook.pi
+;
+$TTL	604800
+@	IN	SOA	ns1.illuminati.pi. root.illuminati.pi. (
+		     2018051401		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+; NS Records
+illuminati.pi.		IN	NS	ns1.illuminati.pi.
+
+; A Record for Nme Servers
+ns1			IN	A	 172.23.32.130 ;public ip
+
+; MX Record
+illuminati.pi.		IN	MX	10 mail.illuminati.pi.
+
+; A Records
+mail			IN	A	172.23.32.131

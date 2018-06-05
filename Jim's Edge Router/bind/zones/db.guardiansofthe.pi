@@ -1,0 +1,16 @@
+;
+; BIND data file for guardiansofthe.pi public zone
+;
+$TTL	604800
+guardiansofthe.pi.	IN	SOA	ns1.guardiansofthe.pi. hostmaster.guardiansofthe.pi. (
+                    2018060301          ; Serial
+		         604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+guardiansofthe.pi.     	IN      NS      ns1.guardiansofthe.pi.
+ns1			IN	A	172.23.33.130 ;
+
+guardiansofgthe.pi.	IN	MX	10 mail.guardiansofthe.pi.
+mail			IN	A       172.23.33.131	

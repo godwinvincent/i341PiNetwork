@@ -1,0 +1,21 @@
+;
+; BIND data file for ns1.homemadeapplepi.pi
+;
+$TTL	604800
+@	IN	SOA	ns1.homemadeapplepi.pi. root.homemadeapplepi.pi. (
+	             2018051401		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+; NS Records
+homemadeapplepi.pi. IN NS ns1.homemadeapplepi.pi.
+
+;A record for name servers
+ns1 IN A 172.23.35.130
+
+;MX Record
+homemadeapplepi.pi. IN MX 10 mail.homemadeapplepi.pi.
+
+;A Records
+mail IN A 172.23.35.131

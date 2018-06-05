@@ -1,0 +1,33 @@
+view "internal" {
+  match-clients { localhost; 172.23.33.0/24; }; 
+  recursion yes;
+  allow-query { any; };
+
+  zone "corp.guardiansofthe.pi" IN {
+    type master;
+    file "/etc/bind/zones/db.corp.guardiansofthe.pi";
+  };
+
+  zone "guardiansofthe.pi" IN {
+    type master;
+    file "/etc/bind/zones/db.guardiansofthe.pi";
+  };
+
+  zone "pi" IN {
+    type slave;
+    masters { 10.10.10.10; };
+  };
+};
+
+view "external" {
+  match-clients { any; }; 
+  recursion no;
+  allow-query { any; };
+
+  zone "guardiansofthe.pi" IN {
+    type master;
+    file "/etc/bind/zones/db.guardiansofthe.pi";
+  };
+};
+
+

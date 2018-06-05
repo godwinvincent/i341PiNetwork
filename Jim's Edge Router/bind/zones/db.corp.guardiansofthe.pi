@@ -1,0 +1,19 @@
+;
+; BIND data file for corp.guardiansofthe.pi private zone
+;
+$TTL	604800
+corp.guardiansofthe.pi.	IN	SOA	drax.corp.guardiansofthe.pi. hostmaster.corp.guardiansofthe.pi. (
+                    2018060301          ; Serial
+		         604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+corp.guardiansofthe.pi.      IN      NS      drax.corp.gaurdiansofthe.pi.
+guardiansofthe		     IN	     A	     172.23.33.1
+
+corp.guardiansofthe.pi.	IN	MX	10 mail.corp.guardiansofthe.pi.
+@                       IN      A       172.23.33.10
+mail			IN	A	172.23.33.11
+www                     IN      A       172.23.33.10
+ns2                     IN      A       172.23.33.12

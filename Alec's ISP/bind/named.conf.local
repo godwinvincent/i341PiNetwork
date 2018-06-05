@@ -1,0 +1,43 @@
+view "private" {
+    match-clients { localhost; 172.23.35.0/24; };
+    recursion yes;
+    allow-query{ any; };
+
+    zone "corp.homemadeapplepi.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.corp.homemadeapplepi.pi";
+        allow-transfer { none; };
+    };
+   
+    zone "homemadeapplepi.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.homemadeapplepi.pi";
+        allow-transfer { none; };
+    };
+
+    zone "pi" IN {
+        type slave;
+        masters{ 10.10.10.10; };
+    };
+
+   include "/etc/bind/named.conf.default-zones";
+};
+
+view "public" {
+    match-clients { any; };
+    allow-query{ any; };
+
+    zone "homemadeapplepi.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.homemadeapplepi.pi";
+        allow-transfer { none; };
+    };
+};
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+

@@ -1,0 +1,4 @@
+auto eth0
+allow-hotplug eth0
+iface eth0 inet static
+   address 172.23.33.1/24
